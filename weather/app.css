@@ -1,0 +1,248 @@
+span, h1 {
+	font-family: Arial;
+}
+
+header {
+	border-radius: 1rem;
+	padding: 0.5rem;
+	background-color: LightGreen;
+	position: relative;
+	max-width: 1000px;
+	margin-bottom: 1rem;
+}
+
+/* change the bottom padding of header div so it does not overlap with last update time */
+header div#header_div {
+	padding-bottom: 1.125rem;
+}
+
+header div#header_div h1#header_title {
+	margin: 0.8rem 0px;
+}
+
+header div#header_div div.header_item {
+	display: inline-block;
+	margin-right: 2.5rem;
+}
+
+header div#header_div div.header_item span {
+	margin-left: 0.5rem;
+}
+
+header div#warning {
+	margin-top: 1rem;
+	overflow: hidden;
+}
+
+header div#warning div#warning_btn {
+	padding: 0.5rem 0.5rem;
+	background-color: LightCoral;
+	float: left;
+	border-radius: 0.5rem;
+}
+
+header div#warning div#warning_btn:hover {
+	border-radius: 0.5rem 0.5rem 0 0;
+}
+
+header div#warning div#warning_btn img {
+	margin-left: 0.5rem;
+}
+
+header div#warning span#warning_text {
+	padding: 0.5rem 0.5rem;
+	background-color: LightCoral;
+	float: left;
+	clear: left;
+	border-radius: 0 0.5rem 0.5rem 0.5rem;
+}
+
+header div#last_update {
+	position: absolute;
+	bottom: 6px;
+	right: 6px;
+}
+
+header div#last_update span {
+	font-size: medium;
+}
+
+header div#refresh {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor: pointer;
+}
+
+section div#options_bar {
+	cursor: pointer;
+}
+
+section div#options_bar span {
+	display: inline-block;
+	width: 100px;
+	padding: 0.5rem 0.5rem;
+	text-align: center;
+	border-radius: 0.5rem 0.5rem 0 0;
+}
+
+section div#temp_div {
+	border-radius: 0 1rem 1rem 1rem;
+}
+
+section div#temp_div, section div#forecast_div {
+	max-width: 1000px;
+	padding: 1rem 0.5rem 0 0.5rem;
+	
+	/*first flex box for all cotainers in temp_div and forecast_div*/
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+}
+
+section div#temp_div div.dist_temp {
+	width: 10.5rem;
+	height: 5rem; /*limit height so it looks consistent for locations with long names*/
+	padding: 0.5rem 0.5rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	background-color: Azure;
+	position: relative;
+	border-radius: 0.75rem;
+	
+	/*second flex box to vertically and horizontally align the span*/
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+section div#temp_div div.dist_temp span {
+	display: block;
+	margin: 0px 15px; /* limit span margin to prevent touching cancel button */
+}
+
+section div#temp_div div.dist_temp span:first-child {
+	font-weight: bold;
+	margin-bottom: 0.25rem;
+}
+
+section div#temp_div div.dist_temp img.dist_temp_cancel {
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+}
+
+section div#forecast_div {
+	border-radius: 1rem;
+}
+
+section div#forecast_div div.fore_day_div {
+	width: 8rem;
+	height: auto;
+	padding: 0.5rem 0.5rem;
+	margin-bottom: 1em;
+	text-align: center;
+	background-color: Azure;
+	border-radius: 0.75rem;
+	
+	/*second flex box to vertically and horizontally align the span*/
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+section div#forecast_div div.fore_day_div span.fore_date {
+	margin: 0.5rem 0;
+	font-weight: bold;
+}
+
+section div#forecast_div div.fore_day_div span {
+	margin-bottom: 0.5rem;
+}
+
+section div#forecast_div div.fore_day_div img {
+	height: 80px;
+	width: 80px;
+}
+
+/* Phone */
+@media only screen and (max-width: 999px) {
+	h1 {
+		font-size: x-large;
+	}
+	
+	span {
+		font-size: small;
+	}
+	
+	header div#header_div {
+		padding-bottom: 1rem;
+	}
+	
+	header div#header_div h1#header_title {
+		margin: 0.75rem 0px;
+	}
+	
+	header div#header_div div.header_item:first-of-type img {
+		width: 80px;
+		height: 80px;
+	}
+	
+	header div#header_div div.header_item {
+		margin-right: 1rem;
+	}
+	
+	header div#warning div#warning_btn, header div#warning span#warning_text {
+		padding: 0.25rem 0.25rem;
+	}
+	
+	header div#warning div#warning_btn img {
+		margin-left: 0.25rem;
+	}
+	
+	header div#last_update span {
+		font-size: small;
+	}
+	
+	section div#options_bar span {
+		padding: 0.5rem 0.25rem;
+	}
+
+	section div#temp_div, section div#forecast_div {
+		padding: 0.5rem 0.25rem 0 0.25rem;
+	}
+	
+	section div#temp_div div.dist_temp {
+		width: 6rem;
+		height: 4rem;
+		padding: 0.25rem 0.25rem;
+		margin-bottom: 0.5rem;
+	}
+	
+	section div#temp_div div.dist_temp span {
+		margin: 0px 11px;
+	}
+	
+	section div#temp_div div.dist_temp img.dist_temp_cancel {
+		height: 14px;
+		width: 14px;
+	}
+	
+	section div#forecast_div div.fore_day_div {
+		width: 6rem;
+		padding: 0.25rem 0.25rem;
+		margin-bottom: 0.5em;
+	}
+
+	section div#forecast_div div.fore_day_div img {
+		height: 60px;
+		width: 60px;
+	}
+}
