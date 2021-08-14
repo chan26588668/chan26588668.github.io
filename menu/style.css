@@ -1,3 +1,19 @@
+div#go_back {
+	margin-bottom: 0.5rem;
+	display: inline-block;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+div#go_back > a:link, div#go_back > a:visited, div#go_back > a:active {
+	text-decoration: none;
+	color: white;
+}
+
+div#go_back:hover {
+	background-color: grey;
+}
+
 body {
 	background-color: black;
 	color: white;
@@ -27,13 +43,18 @@ header > span {
 }
 
 #list > a {
-	padding: 3rem;
+	padding: 1rem;
 	width: 150px;
 	text-decoration: none;
 }
 
 #list > a:hover {
 	background-color: grey;
+}
+
+.item > img {
+	width: 100%;
+	height: auto;
 }
 
 .item {
@@ -46,6 +67,18 @@ header > span {
 	color: white;
 	font-size: 1.5rem;
 	margin-bottom: 0.5rem;
+}
+
+#imgs_list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#imgs_list > img {
+	height: 900px;
+	width: auto;
 }
 
 article {
@@ -66,6 +99,17 @@ article {
 		margin-bottom: 1rem;
 	}
 	
+	#imgs_list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	#imgs_list > img {
+		height: auto;
+		width: 100%;
+	}
+	
 	#list {
 		flex-wrap: wrap;
 		justify-content: space-around;
@@ -73,7 +117,6 @@ article {
 	
 	#list > a {
 		width: 40%;
-		padding: 1rem;
 	}
 	
 	.item > span {

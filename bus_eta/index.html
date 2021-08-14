@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+  <title>Bus ETA</title>
+</head>
+<body>
+<div id="go_back">
+	<a href="../index.html">
+		<img src="images/go_back.png">
+		<span>Go back</span>
+	</a>
+</div>
+<header>
+	<div id="header_div">
+		<h1>Bus ETA</h1>
+		<p>(S) = Scheduled bus, (F) = Final bus<p>
+		<p style="color: red">215X's ETA in Kwong Tin Estate Terminus is not yet finished</p>
+	</div>
+</header>
+<section>
+	<div id="options_bar">
+		<span id="KT_btn" style="background-color: lightblue;">Kwong Tin</span>
+		<span id="YTLT_btn">YT and LT</span>
+		<span id="TC_btn">Tung Chung</span>
+		<span id="CX_btn">CX City</span>
+	</div>
+	<div id="main_bar">
+		<div id="KT_div">
+			<div class="stop">
+				<span>Kwong Tin Shopping Mall</span>
+				<div id="Kwong Tin Shopping Mall"></div>
+			</div>
+			<div class="stop">	
+				<span>Kwong Tin Estate Terminus</span>
+				<div id="Kwong Tin Estate Terminus"></div>
+			</div>
+		</div>
+		<div id="YTLT_div">
+			<div class="stop">
+				<span>Kai Tin Shopping Mall</span>
+				<div id="Kai Tin Shopping Mall"></div>
+			</div>
+			<div class="stop">
+				<span>Yau Tong Shopping Mall</span>
+				<div id="Yau Tong Shopping Mall"></div>
+			</div>
+		</div>
+		<div id="TC_div">
+			<h2>In development</h2>
+		</div>
+		<div id="CX_div">
+			<h2>In development</h2>
+		</div>
+		<div id="last_update_div"><span>Last update: (Server error)</span></div>
+		<div id="refresh_div">
+			<img src="images/reload.png">
+		</div>
+	</div>
+</section>
+</body>
+</html>
