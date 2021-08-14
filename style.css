@@ -73,10 +73,10 @@ article {
 	
 	#list > a {
 		width: 40%;
-		padding: 1rem;
+		padding: 2rem 1rem;
 	}
 	
 	.item > span {
-		font-size: medium;
+		font-size: large;
 	}
 }
