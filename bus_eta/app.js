@@ -79,9 +79,12 @@ window.onload = function() {
 								let min_diff = Math.floor(ms_diff/1000/60)
 								
 								let text = "";
-								if(min_diff <= 0)
-									text = "就到";
-								else {
+								if(min_diff <= 0) {
+									if(ETA_json.data[i].seq == 1)
+										text = "就開";
+									else
+										text = "就到";
+								} else {
 									text = min_diff + " 分鐘";
 									//if(min_diff != 1)
 									//	text += "s";
