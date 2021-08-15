@@ -85,6 +85,10 @@ article {
 		margin-right: 0;
 	}
 	
+	.item {
+		flex-direction: row;
+	}
+	
 	.item > span {
 		font-size: large;
 	}
