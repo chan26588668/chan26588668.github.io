@@ -83,11 +83,10 @@ article {
 	
 	#list > a:first-child {
 		margin-right: 0;
+		margin-bottom: 1rem;
 	}
 	
-	.item {
-		flex-direction: row;
-	}
+	
 	
 	.item > span {
 		font-size: large;
