@@ -80,7 +80,7 @@ window.onload = function() {
 								
 								let text = "";
 								if(min_diff <= 0)
-									text = "Soon";
+									text = "就到";
 								else {
 									text = min_diff + " 分鐘";
 									//if(min_diff != 1)
