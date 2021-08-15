@@ -98,7 +98,7 @@ window.onload = function() {
 									} else if (ETA_json.data[i].rmk_en == "Moving slowly") {
 										text += " (慢)";
 									} else {
-										text += " (" + ETA_json.data[i].rmk_en + ")";
+										text += " (" + ETA_json.data[i].rmk_tc + ")";
 									}
 								}
 								
