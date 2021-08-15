@@ -1,6 +1,6 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #092834;
+	color: #E4F1F6;
 }
 
 header {
@@ -30,10 +30,15 @@ header > span {
 	padding: 3rem;
 	width: 150px;
 	text-decoration: none;
+	background-color: #1A3E4C;
+}
+
+#list > a:first-child {
+	margin-right: 1rem;
 }
 
 #list > a:hover {
-	background-color: grey;
+	background-color: #347B98;
 }
 
 .item {
@@ -43,7 +48,7 @@ header > span {
 }
 
 .item > span {
-	color: white;
+	color: #E4F1F6;
 	font-size: 1.5rem;
 	margin-bottom: 0.5rem;
 }
