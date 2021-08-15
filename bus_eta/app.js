@@ -89,14 +89,14 @@ window.onload = function() {
 								
 								if(ETA_json.data[i].rmk_en != "") {
 									if(ETA_json.data[i].rmk_en == "Scheduled Bus") {
-										text += " (S)";
+										text += " (預)";
 									} else if (ETA_json.data[i].rmk_en == "Final Bus") {
-										text += " (F)";
+										text += " (尾)";
 									} else if (ETA_json.data[i].rmk_en == "The final bus has departed from this stop"){
 										//text = "Final bus departed";
 										text = "最後班次已開出";
 									} else if (ETA_json.data[i].rmk_en == "Moving slowly") {
-										text += " (行程緩慢)";
+										text += " (慢)";
 									} else {
 										text += " (" + ETA_json.data[i].rmk_en + ")";
 									}
