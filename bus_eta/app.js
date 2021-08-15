@@ -1,5 +1,5 @@
 var station_IDs = {
-	KT: ["8FAF102A11AB6C80", "84F4FB113301C3B6", "92AA28BBE48D6B2E", "215D99B3E2A5F8DD"],
+	KT: ["57A0D4D6D4D57497", "8FAF102A11AB6C80", "84F4FB113301C3B6", "92AA28BBE48D6B2E", "215D99B3E2A5F8DD"],
 	YTLT: ["F85916921D80C45A", "57A0D4D6D4D57497", "F60CC440E22B0BD9"],
 	TC: [],
 	CX: []
@@ -30,7 +30,7 @@ window.onload = function() {
 	}
 
 	function refresh_ETA_KMB(div_name, route, stop_ID) {
-		//console.log(div_name.id + " " + route + " " + stop_ID)
+		console.log(div_name.id + " " + route + " " + stop_ID)
 		let url = "https://data.etabus.gov.hk/v1/transport/kmb/stop-eta/" + stop_ID
 		fetch(url)
 		.then( response => {
@@ -82,9 +82,9 @@ window.onload = function() {
 								if(min_diff <= 0)
 									text = "Soon";
 								else {
-									text = min_diff + " min";
-									if(min_diff != 1)
-										text += "s";
+									text = min_diff + " 分鐘";
+									//if(min_diff != 1)
+									//	text += "s";
 								}
 								
 								if(ETA_json.data[i].rmk_en != "") {
@@ -93,7 +93,10 @@ window.onload = function() {
 									} else if (ETA_json.data[i].rmk_en == "Final Bus") {
 										text += " (F)";
 									} else if (ETA_json.data[i].rmk_en == "The final bus has departed from this stop"){
-										text = "Final bus departed";
+										//text = "Final bus departed";
+										text = "最後班次已開出";
+									} else if (ETA_json.data[i].rmk_en == "Moving slowly") {
+										text += " (行程緩慢)";
 									} else {
 										text += " (" + ETA_json.data[i].rmk_en + ")";
 									}

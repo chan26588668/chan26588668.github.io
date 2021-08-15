@@ -66,6 +66,7 @@ div#YTLT_div,div#TC_div, div#CX_div {
 /* Stops */
 div.stop {
 	height: auto;
+	width: 200px;
 	padding: 0.5rem 0.5rem 0.25rem 0.5rem;
 	margin-right: 0.75rem;
 	margin-bottom: 1rem;
@@ -173,6 +174,7 @@ div#refresh_div {
 	/* Stops */
 	div.stop {
 		height: auto;
+		width: 130px;
 		padding: 0.25rem 0.25rem 0.125rem 0.25rem;
 		margin-right: 0.375rem;
 		margin-bottom: 0.5rem;
