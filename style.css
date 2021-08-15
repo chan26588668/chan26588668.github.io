@@ -77,8 +77,12 @@ article {
 	}
 	
 	#list > a {
-		width: 40%;
+		width: 50%;
 		padding: 2rem 1rem;
+	}
+	
+	#list > a:first-child {
+		margin-right: 0;
 	}
 	
 	.item > span {
