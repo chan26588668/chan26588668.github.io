@@ -1,8 +1,8 @@
 var station_IDs = {
-	KT: ["57A0D4D6D4D57497", "8FAF102A11AB6C80", "84F4FB113301C3B6", "92AA28BBE48D6B2E", "215D99B3E2A5F8DD"],
-	YTLT: ["F85916921D80C45A", "57A0D4D6D4D57497", "F60CC440E22B0BD9"],
-	TC: [],
-	CX: []
+	KT: ["57A0D4D6D4D57497", "8FAF102A11AB6C80", "84F4FB113301C3B6", "92AA28BBE48D6B2E", "215D99B3E2A5F8DD", "736E84A8060D2AB9", "001713"],
+	YTLT: ["F85916921D80C45A", "F60CC440E22B0BD9"],
+	TC: ["86FD7EFBB651F5CE", "001860"],
+	CX: ["18CA599721E67265", "001844", "001845", "AAC64BCDD5B55A86"]
 };
 
 window.onload = function() {
@@ -125,6 +125,85 @@ window.onload = function() {
 		});
 	}
 	
+	function refresh_ETA_CTB(div_name, route, stop_ID, seq_number) {
+		console.log(div_name.id + " " + route + " " + stop_ID)
+		let url = "https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/CTB/" + stop_ID + "/" + route
+		fetch(url)
+		.then( response => {
+			if (response.status == 200) {
+				response.json().then( ETA_json => {
+					//Populate div
+					//Create ETA block devs
+					
+					let ETA_block = document.createElement("div");
+					ETA_block.setAttribute("class", route);
+					div_name.appendChild(ETA_block);
+					
+					let ETA_block_text = document.createElement("span");
+					ETA_block_text.innerHTML = route;
+					ETA_block.appendChild(ETA_block_text);
+					
+					//Create ETA item devs
+					let ETA_to_show = ETA_json.data.length;
+					if(ETA_json.data.length > 3)
+						ETA_to_show = 3;
+					
+					let ETA_shown = 0;
+					
+					//find out all the ETAs
+					if(ETA_json.data.length != 0) {
+						for(let i = 0; i < (ETA_json.data.length || ETA_shown == ETA_to_show); i++) {
+							// skip not matching route
+							if(ETA_json.data[i].route == route && ETA_json.data[i].seq == seq_number) {
+								
+								let ETA_item = document.createElement("div");
+								ETA_item.setAttribute("class", "ETA_item");
+								ETA_block.appendChild(ETA_item);
+									
+								let ETA_text = document.createElement("span");
+								ETA_text.setAttribute("class", "ETA_text");
+								ETA_item.appendChild(ETA_text);
+									
+								let ms_diff = Date.parse(ETA_json.data[i].eta) - Date.now()
+								//console.log(ms_diff)
+								let min_diff = Math.floor(ms_diff/1000/60)
+								
+								let text = "";
+								if(min_diff <= 0)
+									text = "就到";
+								else {
+									text = min_diff + " 分鐘";
+									//if(min_diff != 1)
+									//	text += "s";
+								}
+								
+								if(ETA_json.data[i].rmk_en != "") {
+									text += " (" + ETA_json.data[i].rmk_en + ")";
+								}
+								
+								ETA_text.innerHTML = text;
+								
+								ETA_shown++;
+							}
+						}
+					}
+
+					//if there are no record
+					if(ETA_shown == 0 || ETA_json.data.length == 0) {
+						let ETA_item = document.createElement("div");
+						ETA_item.setAttribute("class", "ETA_item");
+						ETA_block.appendChild(ETA_item);
+						
+						let ETA_text = document.createElement("span");
+						ETA_text.setAttribute("class", "ETA_text");
+						ETA_text.innerHTML = "No data";
+						ETA_item.appendChild(ETA_text);
+					}
+				});
+			}
+		});
+	}
+	
 	function refresh_last_update() {
 		let target_div = document.getElementById("last_update_div");
 		let time_now = new Date();
@@ -152,6 +231,12 @@ window.onload = function() {
 		refresh_ETA_KMB(target_div, "16", station_IDs.KT[3]);
 		refresh_ETA_KMB(target_div, "215X", station_IDs.KT[4]);
 		
+		target_div = document.getElementById("Lung Pak House");
+		remove_all_child_nodes_from(target_div);
+		refresh_ETA_KMB(target_div, "216M", station_IDs.KT[5]);
+		refresh_ETA_CTB(target_div, "E22X", station_IDs.KT[6], 5);
+		refresh_ETA_CTB(target_div, "E22P", station_IDs.KT[6], 5);
+		
 		refresh_last_update();
 	}
 	
@@ -167,7 +252,38 @@ window.onload = function() {
 		
 		refresh_last_update();
 	}
+	
+	function refresh_TC_div() {
+		let target_div = document.getElementById("Tung Chung Station");
+		remove_all_child_nodes_from(target_div);
+		refresh_ETA_KMB(target_div, "S64", station_IDs.TC[0]);
+		refresh_ETA_KMB(target_div, "S64C", station_IDs.TC[0]);
+		refresh_ETA_CTB(target_div, "S52", station_IDs.TC[1], 5);
+		refresh_ETA_CTB(target_div, "S52P", station_IDs.TC[1], 5);
 		
+		refresh_last_update();
+	}
+	
+	function refresh_CX_div() {
+		let target_div = document.getElementById("CX to Tung Chung");
+		remove_all_child_nodes_from(target_div);
+		refresh_ETA_KMB(target_div, "S64", station_IDs.CX[0]);
+		refresh_ETA_KMB(target_div, "S64C", station_IDs.CX[0]);
+		refresh_ETA_CTB(target_div, "S52", station_IDs.CX[1], 7);
+		
+		target_div = document.getElementById("CX to Yau Tong");
+		remove_all_child_nodes_from(target_div);
+		refresh_ETA_CTB(target_div, "E22X", station_IDs.CX[2], 5);
+		
+		target_div = document.getElementById("CX to Airport");
+		remove_all_child_nodes_from(target_div);
+		refresh_ETA_KMB(target_div, "S64", station_IDs.CX[3]);
+		refresh_ETA_KMB(target_div, "S64X", station_IDs.CX[3]);
+		refresh_ETA_KMB(target_div, "S65", station_IDs.CX[3]);
+		
+		refresh_last_update();
+	}
+	
 	//Add event handling for buttons on options bar
 	function options_bar_KT_btn() {
 		KT_div.style.display = "flex";
@@ -215,6 +331,8 @@ window.onload = function() {
 		CX_btn.style.backgroundColor = "white";
 		
 		main_bar_block.style.borderRadius = "0.75rem";
+		refresh_div.onclick = refresh_TC_div;
+		refresh_TC_div();
 	}
 	
 	function options_bar_CX_btn() {
@@ -229,6 +347,9 @@ window.onload = function() {
 		CX_btn.style.backgroundColor = "lightblue";
 		
 		main_bar_block.style.borderRadius = "0.75rem";
+		
+		refresh_div.onclick = refresh_CX_div;
+		refresh_CX_div();
 	}
 
 	refresh_div.onclick = refresh_KT_div;

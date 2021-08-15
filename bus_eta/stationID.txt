@@ -1,8 +1,6 @@
-
-
-215X Kai Tin Mall					F85916921D80C45A
-216M Kai Tin Mall					F85916921D80C45A
-
+KMB/LWB: https://data.etabus.gov.hk/v1/transport/kmb/stop-eta/
+CTB: https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/CTB/001860/S52
+----------------------------------------------------------------------
 216M Kwong Tin Shopping Mall		57A0D4D6D4D57497
 214 Kwong Tin Shopping Mall			57A0D4D6D4D57497
 14H Kwong Tin Shopping Mall			57A0D4D6D4D57497
@@ -12,4 +10,25 @@
 16 Kwong Tin Estate Terminus		92AA28BBE48D6B2E
 215X Kwong Tin Estate Terminus		215D99B3E2A5F8DD
 
+E22X 龍柏閣 to Airport Seq 5		001713
+E22P 龍柏閣 to Airport Seq 5		001713
+----------------------------------------------------------------------
+215X Kai Tin Mall					F85916921D80C45A
+216M Kai Tin Mall					F85916921D80C45A
+
 216M Yau Tong Shopping Mall			F60CC440E22B0BD9
+----------------------------------------------------------------------
+S64 東涌站巴士總站 Seq 4			86FD7EFBB651F5CE
+S64C 東涌站巴士總站					86FD7EFBB651F5CE
+S52	東涌站 Seq 5					001860
+S52P 東涌站	Seq 5					001860
+----------------------------------------------------------------------
+S64	CX City to 東涌站 Seq 25		18CA599721E67265
+S64C CX City to 東涌站 Seq 13		18CA599721E67265
+S52	CX City to 東涌站 Seq 7			001844
+
+E22X CX City to Yau Tong Seq 5		001845
+
+S64	CX City to Airport Seq 13		AAC64BCDD5B55A86
+S64X CX City to Airport Seq 9		AAC64BCDD5B55A86
+S65 CX City to Airport Seq 9		AAC64BCDD5B55A86
