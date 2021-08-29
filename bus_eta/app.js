@@ -1,6 +1,6 @@
 var station_IDs = {
 	KT: ["57A0D4D6D4D57497", "8FAF102A11AB6C80", "84F4FB113301C3B6", "92AA28BBE48D6B2E", "215D99B3E2A5F8DD", "736E84A8060D2AB9", "001713"],
-	YTLT: ["F85916921D80C45A", "F60CC440E22B0BD9"],
+	YTLT: ["F85916921D80C45A", "F60CC440E22B0BD9", "5309D748976029CB"],
 	TC: ["86FD7EFBB651F5CE", "001860"],
 	CX: ["18CA599721E67265", "001844", "001845", "AAC64BCDD5B55A86"]
 };
@@ -76,7 +76,7 @@ window.onload = function() {
 									
 								let ms_diff = Date.parse(ETA_json.data[i].eta) - Date.now()
 								//console.log(ms_diff)
-								let min_diff = Math.floor(ms_diff/1000/60)
+								let min_diff = Math.round(ms_diff/1000/60)
 								
 								let text = "";
 								if(min_diff <= 0) {
@@ -169,7 +169,7 @@ window.onload = function() {
 									
 								let ms_diff = Date.parse(ETA_json.data[i].eta) - Date.now()
 								//console.log(ms_diff)
-								let min_diff = Math.floor(ms_diff/1000/60)
+								let min_diff = Math.round(ms_diff/1000/60)
 								
 								let text = "";
 								if(min_diff <= 0)
@@ -252,6 +252,7 @@ window.onload = function() {
 		target_div = document.getElementById("Yau Tong Shopping Mall");
 		remove_all_child_nodes_from(target_div);
 		refresh_ETA_KMB(target_div, "216M", station_IDs.YTLT[1]);
+		refresh_ETA_KMB(target_div, "14B", station_IDs.YTLT[2]);
 		
 		refresh_last_update();
 	}
@@ -276,6 +277,7 @@ window.onload = function() {
 		
 		target_div = document.getElementById("CX to Yau Tong");
 		remove_all_child_nodes_from(target_div);
+		refresh_ETA_CTB(target_div, "E22P", station_IDs.CX[2], 5);
 		refresh_ETA_CTB(target_div, "E22X", station_IDs.CX[2], 5);
 		
 		target_div = document.getElementById("CX to Airport");
