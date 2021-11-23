@@ -31,10 +31,11 @@ header > span {
 	width: 150px;
 	text-decoration: none;
 	background-color: #1A3E4C;
+	margin-right: 1rem;
 }
 
-#list > a:first-child {
-	margin-right: 1rem;
+#list > a:last-child {
+	margin-right: 0rem;
 }
 
 #list > a:hover {
