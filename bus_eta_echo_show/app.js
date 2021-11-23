@@ -249,7 +249,7 @@ window.onload = function() {
 		refresh_ETA_KMB(target_div, "216M", station_IDs.KT[1]);
 		refresh_ETA_KMB(target_div, "14B", station_IDs.KT[2]);
 		
-		target_div = document.getElementById("Kwong Tin Estate Terminus 2");
+		target_div = document.getElementById("Kwong Tin Next One");
 		remove_all_child_nodes_from(target_div);
 		refresh_ETA_KMB(target_div, "16", station_IDs.KT[3]);
 		refresh_ETA_KMB(target_div, "215X", station_IDs.KT[4]);
