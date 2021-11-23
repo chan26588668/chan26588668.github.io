@@ -230,7 +230,10 @@ window.onload = function() {
 		final_time += time_now.getHours() + ":";
 		if(time_now.getMinutes() >= 0 && time_now.getMinutes() <= 9)
 			final_time += '0';
-		final_time += time_now.getMinutes();
+		final_time += time_now.getMinutes() + ":";
+		if(time_now.getSeconds() >= 0 && time_now.getSeconds() <= 9)
+			final_time += '0';
+		final_time += time_now.getSeconds();
 		target_div.firstElementChild.innerHTML = final_time;
 	}
 	
@@ -258,24 +261,10 @@ window.onload = function() {
 	}
 	
 	//Add event handling for buttons on options bar
-	function options_bar_KT_btn() {
-		KT_div.style.display = "flex";
-		YTLT_div.style.display = "none";
-		TC_div.style.display = "none";
-		CX_div.style.display = "none";
-		
-		KT_btn.style.backgroundColor = "lightblue";
-		YTLT_btn.style.backgroundColor = "white";
-		TC_btn.style.backgroundColor = "white";
-		CX_btn.style.backgroundColor = "white";
-		
-		main_bar_block.style.borderRadius = "0 0.75rem 0.75rem 0.75rem";
-		
-		refresh_div.onclick = refresh_KT_div;
+	function KT_refresh() {
 		refresh_KT_div();
 	}
-
-	refresh_div.onclick = refresh_KT_div;
-
+	
 	refresh_KT_div();
+	setInterval(KT_refresh, 30*1000);
 }
