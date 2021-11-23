@@ -136,7 +136,7 @@ div#refresh_div {
 	}
 	
 	span, h1, p {
-		font-size: small;
+		font-size: medium;
 	}
 	
 	h1, p {
@@ -198,7 +198,7 @@ div#refresh_div {
 
 	/* Route number */
 	div.stop > div > div > span {
-		font-size: small;
+		font-size: medium;
 	}
 
 	/* ETA item */
