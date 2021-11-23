@@ -248,15 +248,18 @@ window.onload = function() {
 		remove_all_child_nodes_from(target_div);
 		refresh_ETA_KMB(target_div, "216M", station_IDs.KT[1]);
 		refresh_ETA_KMB(target_div, "14B", station_IDs.KT[2]);
+		
+		target_div = document.getElementById("Kwong Tin Estate Terminus 2");
+		remove_all_child_nodes_from(target_div);
 		refresh_ETA_KMB(target_div, "16", station_IDs.KT[3]);
 		refresh_ETA_KMB(target_div, "215X", station_IDs.KT[4]);
-		
+		/*
 		target_div = document.getElementById("Lung Pak House");
 		remove_all_child_nodes_from(target_div);
 		refresh_ETA_KMB(target_div, "216M", station_IDs.KT[5]);
 		refresh_ETA_CTB(target_div, "E22X", station_IDs.KT[6], 5);
 		refresh_ETA_CTB(target_div, "E22P", station_IDs.KT[6], 5);
-		
+		*/
 		refresh_last_update();
 	}
 	
